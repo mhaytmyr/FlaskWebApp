@@ -1,0 +1,93 @@
+<!--This page is basic interface for segmentation app
+* User uploads image (Will be placed on the left-side)
+* In the middle there will be model she/he can choose and segment button
+* Left image will show segmented dcm image
+* TODO: will add download link, that will take to subscribe page
+to donwload segmented struct sets
+-->
+
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta charset="utf-8">
+        <title>Segment App</title>
+
+        <!--Bootsrap stuff-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <!--/Bootstrap-->
+    </header>
+
+    <body>
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">
+                    <span class="badge badge-pill badge-success" >
+                        Welcome to segmentation app
+                    </span>
+                </h1>
+                <p class="lead">
+                    Try our segmentation app for free
+                </p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col col-lg-5" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/512" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <p class="card-text">Please upload your CT image</p>
+                        <input class="btn btn-outline-secondary" type="file" name="input-ct">        
+                    </div>
+                </div>
+
+                <div class="col-md-auto">
+                    
+                    <div class="btn-group-vertical">
+                    
+                        <div class="btn-group" role="group">
+                        
+                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Model</button>
+                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                <a class="dropdown-item" href="#HeadAndNeck">Head and Neck</a>
+                                <a class="dropdown-item" href="#Thorax">Thorax</a>
+                                <a class="dropdown-item" href="#Abdomenon">Abdomenon</a>
+                                <a class="dropdown-item" href="#Prostate">Prostate</a>
+                            </div>
+                        </div>
+                        
+                         <!--Include dropdown for model selection-->
+                         <!--
+                        <select class="custom-select custom-select-sm">
+                            <option selected>Model</option>
+                            <option value="1">Head and Neck</option>
+                            <option value="2">Thorax</option>
+                            <option value="3">Abdomenon</option>
+                            <option value="4">Prostate</option>
+                        </select>
+                        -->
+
+                        <!--Add predict button with model selection-->
+                        <input type="button" class="btn btn-outline-success" name="predict" value="SEGMENT">
+                        
+                    </div>
+                </div>
+                
+                <div class="col col-lg-5">
+                    <img src="https://via.placeholder.com/512" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <p class="card-text">Do you want to save contours?</p>
+                        <input type="button" class="btn btn-outline-primary" type="button" value="SAVE CONTOURS" name="save-contour" id="save-contour">
+                    </div>
+                </div>
+            </div>    
+        </div>
+
+    </body>
+
+</html>

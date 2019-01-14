@@ -1,0 +1,94 @@
+<!--This page is basic interface for segmentation app
+* User uploads image (Will be placed on the left-side)
+* In the middle there will be model she/he can choose and segment button
+* Left image will show segmented dcm image
+* TODO: will add download link, that will take to subscribe page
+to donwload segmented struct sets
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Segment CT</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <link rel="stylesheet" href="predict.css">
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        
+        <!-- Page Content -->
+        <!--<div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Welcome to segmentation app</h1>
+                <p class="lead"></p>
+            </div>
+        </div>
+        -->
+
+        <div class="container">
+            <!--<h1 id="main-header">Try Segmentation App!</h1>-->
+                
+
+        <div class="row">    
+            <div class="col-lg-5 portfolio-item" style="width: 18rem;">
+                <img src="https://via.placeholder.com/512" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Please upload your CT image</p>
+                    <input class="btn btn-outline-secondary" type="file" name="input-ct">
+                    
+                </div>
+            </div>
+
+            <div class="col-md-auto">
+                <!--Add predict button with model selection-->
+                <input type="button" class="btn btn-outline-success" name="predict" value="SEGMENT">
+                <!--Include dropdown for model selection-->    
+            </div>
+            
+            <div class="col-lg-5 portfolio-item" style="width: 18rem;">
+                <img src="https://via.placeholder.com/512" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Do you want to save contours?</p>
+                    <input type="button" class="btn btn-outline-primary" type="button" value="SAVE CONTOURS" name="save-contour" id="save-contour">
+                </div>
+            </div>
+
+        </div>
+        </div>
+        <!--/.container -->
+    
+
+        <!--Following layout is using Bootsrapt alone
+        <div class="container">
+        <h1 id="main-header">Try Segmentation App!</h1>
+        <div class="card-group">
+                <div class="card">
+                  <img src="https://via.placeholder.com/512" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Please uplod your CT slice...</p>
+                    <div class="card-footer">
+                        <input class="btn btn-outline-secondary" type="file" name="input-ct">
+                        <input type="button" class="btn btn-outline-success" name="predict" value="SEGMENT">
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="https://via.placeholder.com/512" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">Would you like to save contours?</p>
+                    <div class="card-footer">
+                            <input type="button" class="btn btn-outline-primary" type="button" value="SAVE CONTOURS" name="save-contour" id="save-contour">
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>-->
+        
+    </body>
+</html>
