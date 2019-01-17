@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <title>Simple Upload page</title>
+</head>
+
+<body>
+    <p>Plase upload your file below</p>
+    <!--Remember that requests access name:value pair-->
+    <form method="POST" action="{{url_for('upload_method')}}" id="upload-form" enctype="multipart/form-data"> 
+        <input type="file" name="input-file" accept="image/*" multiple>
+        <input type="submit" value="UPLOAD">
+    </form>
+
+    <p>Here is the images your uploaded!</p>
+    <!--{{filenames}}-->
+    <ul>
+        {%for item in filenames%}
+        <li>{{item}}</li>
+        {%endfor%}
+    </ul>
+    
+    <p>Here is the displaye of all images!</p>
+    {%for item in filenames%}
+        <div class="container">
+            <img src="{{url_for('static',filename=item)}}" width="500" height="100">
+        </div>
+        
+    {%endfor%}
+
+</body>

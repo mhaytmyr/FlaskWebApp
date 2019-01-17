@@ -23,7 +23,7 @@ to donwload segmented struct sets
     <body>
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4">
+                <h1 class="display-4" >
                     <span class="badge badge-pill badge-success" >
                         Welcome to segmentation app
                     </span>
@@ -37,19 +37,26 @@ to donwload segmented struct sets
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col col-lg-5" style="width: 18rem;">
-                    <img src="https://via.placeholder.com/512" class="card-img-top" alt="">
+                    {%if filenames is none%}
+                        <img src="https://via.placeholder.com/512" class="card-img-top" alt="">
+                    {%else%}
+                        <img src="{{url_for('static',filename=filenames[0])}}" class="card-img-top" alt="">
+                    {%endif%}
                     <div class="card-body">
-                        <p class="card-text">Please upload your CT image</p>
-                        <input class="btn btn-outline-secondary" type="file" name="input-ct">        
+                        <form method="POST" action="{{url_for('upload_method')}}" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="formInput">Please upload your CT image</label>
+                                <input type="file" name="input-file" multiple class="form-control-file" id="formInput">
+                                <input type="submit" value="UPLOAD">
+                            </div>
+                        </form> 
+                        
                     </div>
                 </div>
 
                 <div class="col-md-auto">
-                    
                     <div class="btn-group-vertical">
-                    
                         <div class="btn-group" role="group">
-                        
                             <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 Model</button>
                             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -59,11 +66,8 @@ to donwload segmented struct sets
                                 <a class="dropdown-item" href="#Prostate">Prostate</a>
                             </div>
                         </div>
-                        
-
                         <!--Add predict button with model selection-->
                         <input type="button" class="btn btn-outline-success" name="predict" value="SEGMENT">
-                        
                     </div>
                 </div>
                 
