@@ -46,7 +46,7 @@ to donwload segmented struct sets
                         <form method="POST" action="{{url_for('upload_method')}}" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="formInput">Please upload your CT image</label>
-                                <input type="file" name="input-file" multiple class="form-control-file" id="formInput">
+                                <input type="file" name="input-file" multiple class="form-control-file" id="formInput" accept="application/dicom">
                                 <input type="submit" value="UPLOAD">
                             </div>
                         </form> 
