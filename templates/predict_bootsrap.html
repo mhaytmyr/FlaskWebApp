@@ -34,7 +34,7 @@ to donwload segmented struct sets
             </div>
         </div>
 
-        <div class="container">
+        <div class="container-fluid">
             <div class="row justify-content-md-center">
                 <div class="col col-lg-5" style="width: 18rem;">
                     {%if filenames is none%}
@@ -43,11 +43,16 @@ to donwload segmented struct sets
                         <img src="{{url_for('static',filename=filenames[0])}}" class="card-img-top" alt="">
                     {%endif%}
                     <div class="card-body">
+                        <!--
                         <form method="POST" action="{{url_for('upload_method')}}" enctype="multipart/form-data">
+                        -->
+                        <form method="POST" action="{{url_for('main_test')}}" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="formInput">Please upload your CT image</label>
-                                <input type="file" name="input-file" multiple class="form-control-file" id="formInput" accept="application/dicom">
-                                <input type="submit" value="UPLOAD">
+                                <input type="file"  
+                                        name="input_files" multiple class="form-control-file" 
+                                        id="formInput" accept="application/dicom">
+                                <input type="submit" class="btn btn-primary" name="action" value="UPLOAD">
                             </div>
                         </form> 
                         
@@ -55,20 +60,22 @@ to donwload segmented struct sets
                 </div>
 
                 <div class="col-md-auto">
-                    <div class="btn-group-vertical">
-                        <div class="btn-group" role="group">
-                            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                Model</button>
-                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                <a class="dropdown-item" href="#HeadAndNeck">Head and Neck</a>
-                                <a class="dropdown-item" href="#Thorax">Thorax</a>
-                                <a class="dropdown-item" href="#Abdomenon">Abdomenon</a>
-                                <a class="dropdown-item" href="#Prostate">Prostate</a>
-                            </div>
-                        </div>
+                    <!--
+                    <form method="POST" action="{{url_for('model_selection')}}" enctype="multipart/form-data">
+                    -->
+                    <form method="POST" action="{{url_for('main_test')}}" enctype="multipart/form-data">
+                    <div class="btn-group-vertical">                             
+                        <select class="custom-select custom-select-sm" aria-expanded="true" id="model" name="model_name">
+                                <option selected>Select model</option>
+                                <option value="head">HeadAndNeck</option>
+                                <option value="thorax">Thorax</option>
+                                <option value="abdomen">Abdomen</option>
+                                <option value="prostate">Prostate</option>
+                        </select>
                         <!--Add predict button with model selection-->
-                        <input type="button" class="btn btn-outline-success" name="predict" value="SEGMENT">
+                        <input type="submit" class="btn btn-outline-success" name="action" value="SEGMENT">
                     </div>
+                    </form>
                 </div>
                 
                 <div class="col col-lg-5">
