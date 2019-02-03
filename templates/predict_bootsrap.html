@@ -43,10 +43,7 @@ to donwload segmented struct sets
                         <img src="{{url_for('static',filename=filenames[0])}}" class="card-img-top" alt="">
                     {%endif%}
                     <div class="card-body">
-                        <!--
-                        <form method="POST" action="{{url_for('upload_method')}}" enctype="multipart/form-data">
-                        -->
-                        <form method="POST" action="{{url_for('main_test')}}" enctype="multipart/form-data">
+                        <form method="POST" action="{{url_for('main_page')}}" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="formInput">Please upload your CT image</label>
                                 <input type="file"  
@@ -60,10 +57,7 @@ to donwload segmented struct sets
                 </div>
 
                 <div class="col-md-auto">
-                    <!--
-                    <form method="POST" action="{{url_for('model_selection')}}" enctype="multipart/form-data">
-                    -->
-                    <form method="POST" action="{{url_for('main_test')}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{url_for('main_page')}}" enctype="multipart/form-data">
                     <div class="btn-group-vertical">                             
                         <select class="custom-select custom-select-sm" aria-expanded="true" id="model" name="model_name">
                                 <option selected>Select model</option>
@@ -79,7 +73,11 @@ to donwload segmented struct sets
                 </div>
                 
                 <div class="col col-lg-5">
-                    <img src="https://via.placeholder.com/512" class="card-img-top" alt="">
+                    {%if predicts is none%}
+                        <img src="https://via.placeholder.com/512" class="card-img-top" alt="">
+                    {%else%}
+                        <img src="{{url_for('static',filename=predicts[0])}}" class="card-img-top" alt="">
+                    {%endif%}
                     <div class="card-body">
                         <h5 class="card-title"></h5>
                         <p class="card-text">Do you want to save contours?</p>
